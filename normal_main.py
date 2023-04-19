@@ -12,7 +12,7 @@ from aiogram.utils import exceptions as tg_exceptions
 
 logging.basicConfig(level=logging.INFO)
 
-BOT_TOKEN = 'Токен бота'
+BOT_TOKEN = 'Токен'
 
 df = pd.read_excel('Таблица городов.xlsx')
 
@@ -438,7 +438,7 @@ async def all_statistic_handler(callback_query: types.CallbackQuery):
         await bot.send_message(callback_query.from_user.id, f"Самая популярная буква за все время: {letter.title()}")
     elif callback_data == 'Лучшие Результаты все игры':
         lst = top_game_scores_both()
-        await bot.send_message(callback_query.from_user.id, f'Топ лучших результатов🏆')
+        await bot.send_message(callback_query.from_user.id, f'Топ лучших результатов из обеих игр🏆')
         # Проходим по каждому кортежу в отсортированном списке
         for i, tpl in enumerate(lst):
             if i == 0:
@@ -480,7 +480,7 @@ async def all_statistic_handler(callback_query: types.CallbackQuery):
         await bot.send_message(callback_query.from_user.id, f"Самая популярная буква за все время: {letter.title()}")
     elif callback_data == 'Лучшие Результаты быстрая игра':
         lst = top_game_scores('fast_game_scores.json')
-        await bot.send_message(callback_query.from_user.id, f'Топ лучших результатов🏆')
+        await bot.send_message(callback_query.from_user.id, f'Топ лучших результатов из быстрых игр🏆')
         # Проходим по каждому кортежу в отсортированном списке
         for i, tpl in enumerate(lst):
             if i == 0:
@@ -522,7 +522,7 @@ async def all_statistic_handler(callback_query: types.CallbackQuery):
         await bot.send_message(callback_query.from_user.id, f"Самая популярная буква за все время: {letter.title()}")
     elif callback_data == 'Лучшие Результаты класс игра':
         lst = top_game_scores('game_scores.json')
-        await bot.send_message(callback_query.from_user.id, f'Топ лучших результатов🏆')
+        await bot.send_message(callback_query.from_user.id, f'Топ лучших результатов из классических игр🏆')
         # Проходим по каждому кортежу в отсортированном списке
         for i, tpl in enumerate(lst):
             if i == 0:
@@ -549,7 +549,6 @@ async def end_game_and_score_callback(callback_query: types.CallbackQuery, state
         await bot.send_message(callback_query.from_user.id, f"Вы завершили игру и получили: {game_score} очков")
         end_game()
         await state.finish()
-
 
 if __name__ == '__main__':
     executor.start_polling(dispatcher, skip_updates=True)
