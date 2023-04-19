@@ -12,7 +12,7 @@ from aiogram.utils import exceptions as tg_exceptions
 
 logging.basicConfig(level=logging.INFO)
 
-BOT_TOKEN = '6200670915:AAFMyq04Dekm-53JMpRGV3dLe8ROg2Rb2bU'
+BOT_TOKEN = 'Токен бота'
 
 df = pd.read_excel('Таблица городов.xlsx')
 
