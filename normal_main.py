@@ -167,7 +167,7 @@ async def start_goroda_game(callback_query: types.CallbackQuery, state: FSMConte
 # Обработка варианта когда пользователь ничего не написал
 @dispatcher.message_handler()
 async def unknown_command(message: types.Message):
-    await message.reply('Я не знаю такой команды. Используйте /start , чтобы понять, что тут происходит')
+    await message.reply('Я не знаю такой команды. Используйте /menu , чтобы попасть в главное меню')
 
 def end_game():
     global user_city, used_cities, game_score, bot_city
