@@ -186,7 +186,7 @@ def find_most_common_city_letter_both(period):
         return popular_first_letter
 
 #проверяем есть ли пользователь в файле и если нет, то добавлеяем информацию о нем
-def add_user_if_not_exists(users_file, user_id, user_city, used_cities, game_score, user_score,bot_city,user_timer):
+def add_user_if_not_exists(users_file, user_id, user_city, used_cities, game_score, user_score,bot_city,user_timer,game_mode):
     # Читаем данные из файла
     with open(users_file, "r") as f:
         data = json.load(f)
@@ -210,6 +210,7 @@ def add_user_if_not_exists(users_file, user_id, user_city, used_cities, game_sco
             "bot_city": bot_city,
             "reg_date": date,
             "user_timer": user_timer,
+            "game_mode": game_mode
         }
         data["users"].append(new_user)
 
@@ -306,7 +307,3 @@ def top_game_scores_both():
         top_scores.append((score, chat_id))
 
     return top_scores
-
-
-
-
